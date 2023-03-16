@@ -1,13 +1,18 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 import { NavItem } from './';
 import { navItems } from '../data';
+import { TestContext } from '../context';
 
 export const Navbar: React.FC = () => {
   //
   const [isOpen, setIsOpen] = useState(false);
+  const { resetTest } = useContext(TestContext);
 
-  const toggleMenu = () => {
+  const handleClick = (path?: string) => {
+    if (path === '/') {
+      resetTest();
+    }
     setIsOpen(!isOpen);
   };
 
@@ -18,7 +23,7 @@ export const Navbar: React.FC = () => {
           className={`flex items-center px-3 py-2 border rounded text-text border-text hover:text-primary hover:border-primary ${
             isOpen ? 'hidden' : 'block'
           }`}
-          onClick={toggleMenu}
+          onClick={() => setIsOpen(!isOpen)}
         >
           <svg className='w-3 h-3 fill-current' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'>
             <title>Menu</title>
@@ -29,7 +34,7 @@ export const Navbar: React.FC = () => {
       <nav className={`font-body ${isOpen ? 'block' : 'hidden'} lg:flex lg:items-center`}>
         <ul className='flex flex-col lg:flex-row lg:space-x-6'>
           {navItems.map(({ label, path }) => (
-            <NavItem key={path} label={label} path={path} toggleMenu={toggleMenu} />
+            <NavItem key={path} label={label} path={path} handleClick={handleClick} />
           ))}
         </ul>
       </nav>
