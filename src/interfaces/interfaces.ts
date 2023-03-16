@@ -37,3 +37,16 @@ export interface Social {
   href: string;
   Icon: React.FC<React.SVGProps<SVGSVGElement>>;
 }
+
+export interface Features {
+  id: number;
+  title: string;
+  description: string;
+}
+
+export interface Testimonals {
+  id: number;
+  name: string;
+  picture: string;
+  quote: string;
+}

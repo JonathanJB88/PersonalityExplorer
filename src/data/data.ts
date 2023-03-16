@@ -1,7 +1,7 @@
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 
 import { NavItem, Result, Scoring, TestQ, Value } from '../interfaces';
-import { Social } from '../interfaces/interfaces';
+import { Social, Features, Testimonals } from '../interfaces/interfaces';
 
 const { A, B } = Value;
 
@@ -175,5 +175,46 @@ export const social: Social[] = [
     id: 4,
     href: 'https://www.linkedin.com',
     Icon: FaLinkedinIn,
+  },
+];
+
+export const features: Features[] = [
+  {
+    id: 1,
+    title: 'Customized Results',
+    description: 'Get a detailed report on your personality type, tailored to your unique traits.',
+  },
+  {
+    id: 2,
+    title: 'Personal Growth',
+    description: 'Learn more about yourself, improve your relationships, and unlock your potential.',
+  },
+  {
+    id: 3,
+    title: 'Data Privacy',
+    description: 'We value your privacy. Your test results are kept confidential and never shared with third parties.',
+  },
+];
+
+export const testimonialsData: Testimonals[] = [
+  {
+    id: 1,
+    name: 'Marta Smith',
+    picture: 'https://t3.ftcdn.net/jpg/02/33/46/24/360_F_233462402_Fx1yke4ng4GA8TJikJZoiATrkncvW6Ib.jpg',
+    quote: 'The personality test changed my life...',
+  },
+  {
+    id: 2,
+    name: 'John Doe',
+    picture:
+      'https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg',
+    quote: 'The personality test changed my life...',
+  },
+  {
+    id: 3,
+    name: 'Jane Doe',
+    picture:
+      'https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133351964-stock-illustration-default-placeholder-woman.jpg',
+    quote: 'The personality test changed my life...',
   },
 ];
