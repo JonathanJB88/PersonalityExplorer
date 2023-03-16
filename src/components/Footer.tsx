@@ -3,7 +3,7 @@ import { FooterIcon } from './FooterIcon';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className='py-4 bg-background text-text'>
+    <footer className='py-4 bg-background bg-opacity-40 text-text'>
       <div className='container flex flex-col px-4 mx-auto'>
         <div className='flex justify-center'>
           <h2 className='mb-1 mr-2 text-xl font-semibold font-header'>Follow Us | </h2>

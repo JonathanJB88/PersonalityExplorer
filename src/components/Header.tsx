@@ -4,15 +4,15 @@ export const Header: React.FC = () => {
   //
 
   return (
-    <header className='bg-background text-text py-4'>
-      <div className='container mx-auto px-4 flex justify-between items-center'>
+    <header className='py-4 bg-background text-text'>
+      <div className='container flex items-center justify-between px-4 mx-auto'>
         <div className='flex flex-row items-center'>
           <img
             src={require('../assets/pelogo.png')}
-            className='h-14 w-14 cursor-pointer'
+            className='cursor-pointer h-14 w-14'
             alt='Personality Explorer Test Logo'
           />
-          <h1 className='font-header font-semibold text-base lg:text-3xl ml-2 cursor-pointer'>Personality Explorer</h1>
+          <h1 className='ml-2 text-base font-semibold cursor-pointer font-header lg:text-3xl'>Personality Explorer</h1>
         </div>
         <Navbar />
       </div>
