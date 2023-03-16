@@ -5,7 +5,7 @@ import { Social } from '../interfaces/interfaces';
 
 const { A, B } = Value;
 
-export const data: TestQ[] = [
+export const testQuestions: TestQ[] = [
   {
     id: 1,
     question: 'When attending a social gathering, how do you usually feel?',

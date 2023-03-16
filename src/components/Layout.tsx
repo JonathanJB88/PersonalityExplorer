@@ -6,11 +6,12 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className='flex flex-col min-h-screen'>
+    <div
+      className='relative flex flex-col min-h-screen bg-center bg-no-repeat bg-cover'
+      style={{ backgroundImage: `url(${require('../assets/heroBg.jpg')})` }}
+    >
       <Header />
-      <main className='flex-grow'>
-        <div className='container px-4 mx-auto'>{children}</div>
-      </main>
+      <main className='flex-grow'>{children}</main>
       <Footer />
     </div>
   );
