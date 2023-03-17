@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { NavItem } from './';
 import { navItems } from '../data';
+import { NavItem } from './';
 
 export const Navbar: React.FC = () => {
   //

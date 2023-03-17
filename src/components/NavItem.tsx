@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import { TestContext } from '../context/TestContext';
+import { Link } from 'react-router-dom';
+
+import { TestContext } from '../context';
 
 interface Props {
   label: string;

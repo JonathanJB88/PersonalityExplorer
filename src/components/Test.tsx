@@ -1,5 +1,6 @@
 import { Toaster } from 'react-hot-toast';
-import { Questions } from './Questions';
+
+import { Questions } from './';
 import { useTest } from '../hooks';
 
 export const Test: React.FC = () => {

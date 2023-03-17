@@ -1,13 +1,9 @@
-import { useContext, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import { TestContext } from '../context';
-import { CTASection, FeaturesSection, SubHero, Testimonials } from './';
+import { SubHero } from './';
 
 export const Hero: React.FC = () => {
   //
-  const { resetTest } = useContext(TestContext);
-  const { pathname } = useLocation();
   const navigate = useNavigate();
 
   const handleClick = () => {
