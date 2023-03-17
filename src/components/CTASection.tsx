@@ -3,7 +3,6 @@ import { Btn } from './Btn';
 
 export const CTASection: React.FC = () => {
   //
-
   const navigate = useNavigate();
 
   const handleClick = () => {

@@ -12,6 +12,7 @@ export interface TestState {
   currentQuestionIndex: number;
   score: number;
   results: Result[];
+  result: Result | undefined;
 }
 
 interface Props {
@@ -24,6 +25,7 @@ const INITIAL_STATE: TestState = loadStateFromLocalStorage() || {
   currentQuestionIndex: 0,
   score: 0,
   results: results,
+  result: undefined,
 };
 
 export const TestProvider = ({ children }: Props) => {
@@ -47,12 +49,17 @@ export const TestProvider = ({ children }: Props) => {
     dispatch({ type: 'RESET_TEST' });
   };
 
+  const showResult = (resultId: number): void => {
+    dispatch({ type: 'SHOW_RESULT', payload: resultId });
+  };
+
   return (
     <TestContext.Provider
       value={{
         ...state,
         nextQuestion,
         resetTest,
+        showResult,
       }}
     >
       {children}

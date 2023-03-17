@@ -8,9 +8,11 @@ export interface TestContextProps {
   currentQuestionIndex: number;
   score: number;
   results: Result[];
+  result: Result | undefined;
 
   // Methods
   nextQuestion: (points: number) => void;
+  showResult: (resultId: number) => void;
   resetTest: () => void;
 }
 

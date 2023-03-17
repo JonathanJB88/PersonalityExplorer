@@ -95,18 +95,24 @@ export const results: Result[] = [
     label: 'Introverted',
     description:
       'As an introvert, you tend to feel more comfortable in smaller social settings or alone, preferring to engage in solitary activities. You often recharge by spending time alone, and you may find large social gatherings or interacting with many people draining. Introverts tend to be more reserved and reflective, enjoying deep conversations with a few close friends rather than engaging with many acquaintances.',
+    minScore: 0,
+    maxScore: 2,
   },
   {
     id: 2,
     label: 'Ambivert',
     description:
       'As an ambivert, you display a mix of introverted and extroverted traits. You can feel comfortable in both social and solitary situations, depending on the context and your energy levels. You may enjoy socializing with others but also appreciate alone time to recharge. Ambiverts can adapt their behavior to suit different environments and often have a balanced approach to communication and social interactions.',
+    minScore: 3,
+    maxScore: 7,
   },
   {
     id: 3,
     label: 'Extroverted',
     description:
       'As an extrovert, you thrive in social situations and enjoy engaging with others. You often feel energized by interacting with people and participating in group activities. Extroverts tend to be outgoing, expressive, and comfortable in leadership roles. They usually prefer face-to-face communication and might seek out social experiences to recharge after a long day or week.',
+    minScore: 8,
+    maxScore: 10,
   },
 ];
 

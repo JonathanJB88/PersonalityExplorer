@@ -14,6 +14,8 @@ export interface Result {
   id: number;
   label: string;
   description: string;
+  minScore: number;
+  maxScore: number;
 }
 
 export interface NavItem {
