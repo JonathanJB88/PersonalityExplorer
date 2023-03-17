@@ -6,25 +6,14 @@ export interface TestQ {
 
 export interface Option {
   id: number;
-  value: Value;
+  points: number;
   label: string;
-}
-
-export enum Value {
-  A = 'A',
-  B = 'B',
 }
 
 export interface Result {
   id: number;
   label: string;
   description: string;
-}
-
-export interface Scoring {
-  id: number;
-  value: Value;
-  points: number;
 }
 
 export interface NavItem {

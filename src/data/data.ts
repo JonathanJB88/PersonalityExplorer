@@ -1,9 +1,7 @@
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 
-import { NavItem, Result, Scoring, TestQ, Value } from '../interfaces';
+import { NavItem, Result, TestQ } from '../interfaces';
 import { Social, Features, Testimonals } from '../interfaces/interfaces';
-
-const { A, B } = Value;
 
 export const testQuestions: TestQ[] = [
   {
@@ -12,13 +10,13 @@ export const testQuestions: TestQ[] = [
     options: [
       {
         id: 1,
-        value: A,
-        label: 'Energized and excited, as I enjoy meeting new people and engaging in conversations.',
+        points: 1,
+        label: 'A. Energized and excited, as I enjoy meeting new people and engaging in conversations.',
       },
       {
         id: 2,
-        value: B,
-        label: 'Slightly anxious or uncomfortable, as I prefer to spend time alone or with a few close friends.',
+        points: 0,
+        label: 'B. Slightly anxious or uncomfortable, as I prefer to spend time alone or with a few close friends.',
       },
     ],
   },
@@ -28,14 +26,14 @@ export const testQuestions: TestQ[] = [
     options: [
       {
         id: 1,
-        value: A,
-        label: 'By spending time with friends or family, engaging in social activities.',
+        points: 1,
+        label: 'A. By spending time with friends or family, engaging in social activities.',
       },
       {
         id: 2,
-        value: B,
+        points: 0,
         label:
-          'By spending time alone, engaging in solitary activities like reading, watching a movie, or going for a walk.',
+          'B. By spending time alone, engaging in solitary activities like reading, watching a movie, or going for a walk.',
       },
     ],
   },
@@ -45,13 +43,13 @@ export const testQuestions: TestQ[] = [
     options: [
       {
         id: 1,
-        value: A,
-        label: 'I often take on a leadership role, making decisions and coordinating group efforts.',
+        points: 1,
+        label: 'A. I often take on a leadership role, making decisions and coordinating group efforts.',
       },
       {
         id: 2,
-        value: B,
-        label: 'I usually contribute by working on specific tasks or supporting others from behind the scenes.',
+        points: 0,
+        label: 'B. I usually contribute by working on specific tasks or supporting others from behind the scenes.',
       },
     ],
   },
@@ -61,15 +59,15 @@ export const testQuestions: TestQ[] = [
     options: [
       {
         id: 1,
-        value: A,
+        points: 1,
         label:
-          'I prefer face-to-face conversations, as it allows me to express myself better and feel more connected to others.',
+          'A. I prefer face-to-face conversations, as it allows me to express myself better and feel more connected to others.',
       },
       {
         id: 2,
-        value: B,
+        points: 0,
         label:
-          'I prefer written communication, like emails or text messages, as it gives me time to think and formulate my responses.',
+          'B. I prefer written communication, like emails or text messages, as it gives me time to think and formulate my responses.',
       },
     ],
   },
@@ -79,13 +77,13 @@ export const testQuestions: TestQ[] = [
     options: [
       {
         id: 1,
-        value: A,
-        label: 'Attending social events, going out with friends, or engaging in group activities.',
+        points: 1,
+        label: 'A. Attending social events, going out with friends, or engaging in group activities.',
       },
       {
         id: 2,
-        value: B,
-        label: 'Spending time at home, pursuing hobbies, or catching up on personal projects.',
+        points: 0,
+        label: 'B. Spending time at home, pursuing hobbies, or catching up on personal projects.',
       },
     ],
   },
@@ -109,19 +107,6 @@ export const results: Result[] = [
     label: 'Extroverted',
     description:
       'As an extrovert, you thrive in social situations and enjoy engaging with others. You often feel energized by interacting with people and participating in group activities. Extroverts tend to be outgoing, expressive, and comfortable in leadership roles. They usually prefer face-to-face communication and might seek out social experiences to recharge after a long day or week.',
-  },
-];
-
-export const scoring: Scoring[] = [
-  {
-    id: 1,
-    value: A,
-    points: 1,
-  },
-  {
-    id: 2,
-    value: B,
-    points: 0,
   },
 ];
 
