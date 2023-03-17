@@ -25,7 +25,7 @@ export const Navbar: React.FC = () => {
       <nav className={`font-body ${isOpen ? 'block' : 'hidden'} lg:flex lg:items-center`}>
         <ul className='flex flex-col lg:flex-row lg:space-x-6'>
           {navItems.map(({ label, path }) => (
-            <NavItem key={path} label={label} path={path} />
+            <NavItem key={path} label={label} path={path} toggleIcon={() => setIsOpen(!isOpen)} />
           ))}
         </ul>
       </nav>

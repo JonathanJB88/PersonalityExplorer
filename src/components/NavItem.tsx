@@ -5,9 +5,10 @@ import { TestContext } from '../context/TestContext';
 interface Props {
   label: string;
   path: string;
+  toggleIcon?: () => void;
 }
 
-export const NavItem: React.FC<Props> = ({ label, path }) => {
+export const NavItem: React.FC<Props> = ({ label, path, toggleIcon }) => {
   //
   const { resetTest } = useContext(TestContext);
 
@@ -15,6 +16,7 @@ export const NavItem: React.FC<Props> = ({ label, path }) => {
     if (path === '/') {
       resetTest();
     }
+    toggleIcon && toggleIcon();
   };
 
   return (
