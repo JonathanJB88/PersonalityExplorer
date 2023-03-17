@@ -1,9 +1,11 @@
 import { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useMediaQuery } from 'react-responsive';
+
 import { CustomToast } from '../components';
 import { TestContext } from '../context';
 import { TestQ } from '../interfaces';
+
 import introvertedImg from '../assets/introverted.png';
 import extrovertedImg from '../assets/extroverted.png';
 import ambivertImg from '../assets/ambivert.png';
@@ -70,7 +72,7 @@ export const useTest = () => {
             className='block w-full px-4 py-2 mx-auto mt-4 text-white rounded-md font-body bg-primary hover:bg-secondary focus:outline-none sm:w-auto'
             onClick={() => handleClick()}
           >
-            Close
+            want to take the test again?
           </button>
         </div>
       </div>

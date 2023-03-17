@@ -2,9 +2,9 @@ import { TestState } from './';
 
 type TestAction =
   | { type: 'NEXT_QUESTION'; payload: number }
+  | { type: 'SET_LOADING'; payload: boolean }
   | { type: 'RESET_TEST' }
-  | { type: 'SHOW_RESULT' }
-  | { type: 'SET_LOADING'; payload: boolean };
+  | { type: 'SHOW_RESULT' };
 
 export const testReducer = (state: TestState, action: TestAction): TestState => {
   switch (action.type) {

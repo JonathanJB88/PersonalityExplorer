@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, Navigate, RouterProvider, Route, RouteObject } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider, RouteObject } from 'react-router-dom';
 
 import { TestProvider } from './context';
-import { App } from './App';
 import { Test, Layout, Hero, Content } from './components';
 import './index.css';
 

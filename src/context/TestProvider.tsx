@@ -3,8 +3,6 @@ import { useEffect, useReducer } from 'react';
 import { testQuestions, results } from '../data';
 import { TestContext, testReducer } from './';
 import { TestQ, Result } from '../interfaces';
-import { loadStateFromLocalStorage } from '../helpers';
-import { saveStateToLocalStorage } from '../helpers/localStorageHelpers';
 
 export interface TestState {
   isLoading: boolean;
@@ -34,10 +32,7 @@ export const TestProvider = ({ children }: Props) => {
     setTimeout(() => {
       dispatch({ type: 'SET_LOADING', payload: false });
     }, 1000);
-
-    // Save state to local storage
-    saveStateToLocalStorage(state);
-  }, [state]);
+  }, []);
 
   const nextQuestion = (points: number): void => {
     dispatch({ type: 'NEXT_QUESTION', payload: points });

@@ -1,7 +1,6 @@
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 
-import { NavItem, Result, TestQ } from '../interfaces';
-import { Social, Features, Testimonals } from '../interfaces/interfaces';
+import { NavItem, Result, TestQ, Social, Features, Testimonals } from '../interfaces';
 
 export const testQuestions: TestQ[] = [
   {
