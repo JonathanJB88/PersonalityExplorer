@@ -1,33 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider, Route, RouteObject } from 'react-router-dom';
 
-import { App } from './App';
 import { TestProvider } from './context';
+import { App } from './App';
+import { Test, Layout, Hero, Content } from './components';
 import './index.css';
 
-const router = createBrowserRouter([
+const routes: RouteObject[] = [
   {
     path: '/',
-    element: <App />,
+    element: <Layout />,
+    children: [
+      { path: '/', element: <Hero /> },
+      { path: '/about', element: <Navigate to='/' /> },
+      { path: '/test', element: <Test /> },
+      { path: '/contact', element: <Navigate to='/' /> },
+      { path: '/content', element: <Content /> },
+      { path: '/*', element: <Navigate to='/' /> },
+    ],
   },
-  {
-    path: '/about',
-    element: <Navigate to='/' />,
-  },
-  {
-    path: '/test',
-    element: <Navigate to='/' />,
-  },
-  {
-    path: '/contact',
-    element: <Navigate to='/' />,
-  },
-  {
-    path: '/*',
-    element: <Navigate to='/' />,
-  },
-]);
+];
+
+const router = createBrowserRouter(routes);
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 

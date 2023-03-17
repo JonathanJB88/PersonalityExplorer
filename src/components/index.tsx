@@ -11,3 +11,5 @@ export * from './Testimonials';
 export * from './CTASection';
 export * from './SubHero';
 export * from './Btn';
+export * from './Test';
+export * from './Content';

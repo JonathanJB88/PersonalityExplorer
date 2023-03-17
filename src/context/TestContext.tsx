@@ -8,11 +8,9 @@ export interface TestContextProps {
   currentQuestionIndex: number;
   score: number;
   results: Result[];
-  isTestStarted: boolean;
 
   // Methods
   nextQuestion: (points: number) => void;
-  startTest: () => void;
   resetTest: () => void;
 }
 

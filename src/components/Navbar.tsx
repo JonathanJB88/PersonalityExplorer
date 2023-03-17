@@ -1,19 +1,17 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { NavItem } from './';
 import { navItems } from '../data';
-import { TestContext } from '../context';
 
 export const Navbar: React.FC = () => {
   //
   const [isOpen, setIsOpen] = useState(false);
-  const { resetTest } = useContext(TestContext);
+  const navigate = useNavigate();
 
-  const handleClick = (path?: string) => {
-    if (path === '/') {
-      resetTest();
-    }
+  const handleClick = (path: string) => {
     setIsOpen(!isOpen);
+    navigate(path);
   };
 
   return (
