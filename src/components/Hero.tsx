@@ -10,12 +10,6 @@ export const Hero: React.FC = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (pathname !== '/') {
-      resetTest();
-    }
-  }, [pathname, resetTest]);
-
   const handleClick = () => {
     navigate('/content');
   };

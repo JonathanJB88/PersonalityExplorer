@@ -13,3 +13,4 @@ export * from './SubHero';
 export * from './Btn';
 export * from './Test';
 export * from './Content';
+export * from './CustomToast';

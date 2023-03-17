@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { NavItem } from './';
 import { navItems } from '../data';
@@ -7,12 +6,6 @@ import { navItems } from '../data';
 export const Navbar: React.FC = () => {
   //
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
-
-  const handleClick = (path: string) => {
-    setIsOpen(!isOpen);
-    navigate(path);
-  };
 
   return (
     <>
@@ -32,7 +25,7 @@ export const Navbar: React.FC = () => {
       <nav className={`font-body ${isOpen ? 'block' : 'hidden'} lg:flex lg:items-center`}>
         <ul className='flex flex-col lg:flex-row lg:space-x-6'>
           {navItems.map(({ label, path }) => (
-            <NavItem key={path} label={label} path={path} handleClick={handleClick} />
+            <NavItem key={path} label={label} path={path} />
           ))}
         </ul>
       </nav>

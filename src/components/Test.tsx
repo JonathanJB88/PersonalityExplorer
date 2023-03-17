@@ -1,15 +1,38 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import { motion } from 'framer-motion';
+import { toast, Toaster } from 'react-hot-toast';
+
 import { TestContext } from '../context';
+import { TestQ } from '../interfaces/interfaces';
+import { CustomToast } from './';
 
 export const Test: React.FC = () => {
   //
-  const { questions, currentQuestionIndex, result, score, nextQuestion, showResult } = useContext(TestContext);
-  const currentQuestion = questions[currentQuestionIndex];
-  const isTestFinished = currentQuestionIndex === questions.length;
+  const { questions, result, nextQuestion, showResult, resetTest } = useContext(TestContext);
+
+  const [currQuestionIndex, setCurrQuestionIndex] = useState(0);
+  const [currQuestion, setCurrQuestion] = useState<TestQ>(questions[0]);
+  const [showModal, setShowModal] = useState(false);
 
   const handleClick = (points: number) => {
+    if (currQuestionIndex === questions.length - 1) {
+      const toastId = toast(
+        <CustomToast
+          message='Test completed! Click here to view results.'
+          onClick={() => {
+            showResult();
+            setShowModal(true);
+            toast.dismiss(toastId);
+          }}
+        />,
+        { duration: 5000 }
+      );
+      return;
+    }
     nextQuestion(points);
+    const index = currQuestionIndex + 1;
+    setCurrQuestionIndex(index);
+    setCurrQuestion(questions[index]);
   };
 
   const containerVariants = {
@@ -18,32 +41,35 @@ export const Test: React.FC = () => {
     exit: { opacity: 0, transition: { duration: 0.5 } },
   };
 
-  useEffect(() => {
-    if (currentQuestionIndex === questions.length) {
-      const percentage = (score / questions.length) * 100;
+  const renderResultsModal = () => {
+    const handleClick = () => {
+      setShowModal(false);
+      resetTest();
+      setCurrQuestionIndex(0);
+      setCurrQuestion(questions[0]);
+    };
 
-      let resultId;
-      if (percentage <= 33) {
-        resultId = 1; // Introverted
-      } else if (percentage <= 66) {
-        resultId = 2; // Ambivert
-      } else {
-        resultId = 3; // Extroverted
-      }
-
-      showResult(resultId);
-    }
-  }, [currentQuestionIndex, questions.length, showResult, score]);
+    return (
+      <div className='fixed inset-0 z-50 flex items-center justify-center'>
+        <div className='p-6 bg-white rounded'>
+          <h3 className='mb-2 text-2xl font-medium'>Test Results</h3>
+          <p>{result?.label}</p>
+          <p>{result?.description}</p>
+          <button className='px-4 py-2 mt-4 text-white rounded bg-primary' onClick={() => handleClick()}>
+            Close
+          </button>
+        </div>
+      </div>
+    );
+  };
 
   return (
-    <div className='max-w-lg mx-auto'>
-      <h2 className='mb-4 text-3xl font-bold'>{isTestFinished ? 'Result' : 'Test Questions'}</h2>
-      {isTestFinished ? (
-        <div className='p-4 bg-white rounded-md shadow-md'>
-          <h3 className='mb-2 text-2xl font-medium'>{result?.label}</h3>
-          <p>{result?.description}</p>
-        </div>
-      ) : (
+    <>
+      <Toaster />
+      {showModal && renderResultsModal()}
+      <div className='max-w-lg mx-auto'>
+        <h2 className='mb-4 text-3xl font-bold'>Test Questions</h2>
+
         <motion.div
           className='p-4 bg-white rounded-md shadow-md'
           variants={containerVariants}
@@ -51,9 +77,9 @@ export const Test: React.FC = () => {
           animate='visible'
           exit='exit'
         >
-          <p className='mb-2 text-xl font-medium'>{currentQuestion.question}</p>
+          <p className='mb-2 text-xl font-medium'>{currQuestion.question}</p>
           <ul>
-            {currentQuestion.options.map((option) => (
+            {currQuestion.options.map((option) => (
               <li key={option.id} className='mb-2'>
                 <button
                   className='w-full px-4 py-2 text-left transition-colors bg-gray-100 rounded-md hover:bg-primary hover:text-white'
@@ -65,7 +91,7 @@ export const Test: React.FC = () => {
             ))}
           </ul>
         </motion.div>
-      )}
-    </div>
+      </div>
+    </>
   );
 };

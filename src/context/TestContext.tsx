@@ -5,14 +5,13 @@ export interface TestContextProps {
   // State
   isLoading: boolean;
   questions: TestQ[];
-  currentQuestionIndex: number;
   score: number;
   results: Result[];
   result: Result | undefined;
 
   // Methods
   nextQuestion: (points: number) => void;
-  showResult: (resultId: number) => void;
+  showResult: () => void;
   resetTest: () => void;
 }
 

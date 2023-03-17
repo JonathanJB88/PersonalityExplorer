@@ -3,34 +3,29 @@ import { TestState } from './';
 type TestAction =
   | { type: 'NEXT_QUESTION'; payload: number }
   | { type: 'RESET_TEST' }
-  | { type: 'SHOW_RESULT'; payload: number }
-  | { type: 'setLoading'; payload: boolean };
+  | { type: 'SHOW_RESULT' }
+  | { type: 'SET_LOADING'; payload: boolean };
 
 export const testReducer = (state: TestState, action: TestAction): TestState => {
   switch (action.type) {
     case 'NEXT_QUESTION':
       return {
         ...state,
-        currentQuestionIndex: state.currentQuestionIndex + 1,
         score: state.score + action.payload,
       };
     case 'SHOW_RESULT':
-      const matchingResults = state.results.filter(
-        (result) => state.score >= result.minScore && state.score <= result.maxScore
-      );
-      const finalResult = matchingResults.length > 0 ? matchingResults[0] : undefined;
+      const result = state.results.find((res) => state.score >= res.minScore && state.score <= res.maxScore);
       return {
         ...state,
-        result: finalResult,
+        result,
       };
     case 'RESET_TEST':
       return {
         ...state,
-        currentQuestionIndex: 0,
         score: 0,
         result: undefined,
       };
-    case 'setLoading':
+    case 'SET_LOADING':
       return {
         ...state,
         isLoading: action.payload,

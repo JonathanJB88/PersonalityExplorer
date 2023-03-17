@@ -9,7 +9,6 @@ import { saveStateToLocalStorage } from '../helpers/localStorageHelpers';
 export interface TestState {
   isLoading: boolean;
   questions: TestQ[];
-  currentQuestionIndex: number;
   score: number;
   results: Result[];
   result: Result | undefined;
@@ -19,10 +18,9 @@ interface Props {
   children: JSX.Element | JSX.Element[];
 }
 
-const INITIAL_STATE: TestState = loadStateFromLocalStorage() || {
+const INITIAL_STATE: TestState = {
   isLoading: true,
   questions: testQuestions,
-  currentQuestionIndex: 0,
   score: 0,
   results: results,
   result: undefined,
@@ -34,7 +32,7 @@ export const TestProvider = ({ children }: Props) => {
   useEffect(() => {
     // Simulate loading
     setTimeout(() => {
-      dispatch({ type: 'setLoading', payload: false });
+      dispatch({ type: 'SET_LOADING', payload: false });
     }, 1000);
 
     // Save state to local storage
@@ -49,8 +47,8 @@ export const TestProvider = ({ children }: Props) => {
     dispatch({ type: 'RESET_TEST' });
   };
 
-  const showResult = (resultId: number): void => {
-    dispatch({ type: 'SHOW_RESULT', payload: resultId });
+  const showResult = (): void => {
+    dispatch({ type: 'SHOW_RESULT' });
   };
 
   return (
