@@ -208,3 +208,5 @@ export const testimonialsData: Testimonals[] = [
     quote: 'The personality test changed my life...',
   },
 ];
+
+export { FaFacebookF };

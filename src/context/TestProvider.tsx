@@ -16,7 +16,7 @@ interface Props {
   children: JSX.Element | JSX.Element[];
 }
 
-const INITIAL_STATE: TestState = {
+export const INITIAL_STATE: TestState = {
   isLoading: true,
   questions: testQuestions,
   score: 0,
@@ -46,16 +46,23 @@ export const TestProvider = ({ children }: Props) => {
     dispatch({ type: 'SHOW_RESULT' });
   };
 
+  const setLoading = (isLoading: boolean): void => {
+    dispatch({ type: 'SET_LOADING', payload: isLoading });
+  };
+
   return (
-    <TestContext.Provider
-      value={{
-        ...state,
-        nextQuestion,
-        resetTest,
-        showResult,
-      }}
-    >
-      {children}
-    </TestContext.Provider>
+    <div data-testid='test-provider'>
+      <TestContext.Provider
+        value={{
+          ...state,
+          nextQuestion,
+          resetTest,
+          showResult,
+          setLoading,
+        }}
+      >
+        {children}
+      </TestContext.Provider>
+    </div>
   );
 };

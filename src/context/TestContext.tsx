@@ -13,6 +13,7 @@ export interface TestContextProps {
   nextQuestion: (points: number) => void;
   showResult: () => void;
   resetTest: () => void;
+  setLoading: (isLoading: boolean) => void;
 }
 
 export const TestContext = createContext<TestContextProps>({} as TestContextProps);

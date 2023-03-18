@@ -15,3 +15,4 @@ export * from './Questions';
 export * from './SubHero';
 export * from './Test';
 export * from './Testimonials';
+export * from './TestComponent';

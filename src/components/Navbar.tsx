@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { TestContext } from '../context';
 
 import { navItems } from '../data';
 import { NavItem } from './';
@@ -6,10 +7,11 @@ import { NavItem } from './';
 export const Navbar: React.FC = () => {
   //
   const [isOpen, setIsOpen] = useState(false);
+  const { resetTest } = useContext(TestContext);
 
   return (
     <>
-      <nav className='font-body lg:hidden'>
+      <nav className='font-body lg:hidden' aria-label='main menu'>
         <button
           className={`flex items-center px-3 py-2 border rounded text-text border-text hover:text-primary hover:border-primary ${
             isOpen ? 'hidden' : 'block'
@@ -25,7 +27,7 @@ export const Navbar: React.FC = () => {
       <nav className={`font-body ${isOpen ? 'block' : 'hidden'} lg:flex lg:items-center`}>
         <ul className='flex flex-col lg:flex-row lg:space-x-6'>
           {navItems.map(({ label, path }) => (
-            <NavItem key={path} label={label} path={path} toggleIcon={() => setIsOpen(!isOpen)} />
+            <NavItem key={path} label={label} path={path} toggleIcon={() => setIsOpen(!isOpen)} resetTest={resetTest} />
           ))}
         </ul>
       </nav>

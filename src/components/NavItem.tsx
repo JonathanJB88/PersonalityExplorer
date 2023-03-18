@@ -1,21 +1,18 @@
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-
-import { TestContext } from '../context';
 
 interface Props {
   label: string;
   path: string;
   toggleIcon?: () => void;
+  resetTest?: () => void;
 }
 
-export const NavItem: React.FC<Props> = ({ label, path, toggleIcon }) => {
+export const NavItem: React.FC<Props> = ({ label, path, toggleIcon, resetTest }) => {
   //
-  const { resetTest } = useContext(TestContext);
 
   const handleReset = (path: string) => {
     if (path === '/') {
-      resetTest();
+      resetTest && resetTest();
     }
     toggleIcon && toggleIcon();
   };
