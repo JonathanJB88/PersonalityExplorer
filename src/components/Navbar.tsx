@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { TestContext } from '../context';
 
 import { navItems } from '../data';
-import { NavItem } from './';
+import { NavItem } from './NavItem';
 
 export const Navbar: React.FC = () => {
   //

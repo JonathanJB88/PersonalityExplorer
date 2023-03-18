@@ -6,6 +6,7 @@ import heroBg from '../assets/heroBg.jpg';
 
 export const Layout: React.FC = () => (
   <div
+    data-testid='background-image'
     className='relative flex flex-col min-h-screen bg-center bg-no-repeat bg-cover'
     style={{ backgroundImage: `url(${heroBg})` }}
   >

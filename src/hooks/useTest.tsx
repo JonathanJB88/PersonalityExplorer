@@ -83,6 +83,7 @@ export const useTest = () => {
     isLaptopOrDesktop,
     showModal,
     currQuestion,
+    questions,
     handleClick,
     renderResultsModal,
   };
