@@ -4,8 +4,8 @@ import { FaFacebookF as FacebookIcon } from '../../data';
 
 describe('FooterIcon component', () => {
   test('renders FooterIcon component with Facebook icon', () => {
-    render(<FooterIcon href='https://www.facebook.com/' Icon={FacebookIcon} />);
-    const link = screen.getByRole('link', { name: '' });
+    render(<FooterIcon href='https://www.facebook.com' Icon={FacebookIcon} />);
+    const link = screen.getByLabelText('social-media-icon');
     expect(link).toBeInTheDocument();
   });
 });
