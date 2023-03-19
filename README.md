@@ -1,5 +1,9 @@
 # Personality Explorer
 
+<div align='center'>
+<img height='100px'  src="./public/pelogo.png"/>
+</div>
+
 Personality Explorer is a React-based web application that helps users determine their personality type: Extroverted, Introverted, or Ambivert. The application is built with a modern frontend stack, featuring custom hooks, unit tests, and end-to-end tests to ensure a high-quality user experience.
 
 ## Table of Contents

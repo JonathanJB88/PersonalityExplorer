@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Personality Explorer",
+  "name": "Personality Explorer Test - a tool for exploring the Big Three personality traits",
   "icons": [
     {
       "src": "favicon.ico",
