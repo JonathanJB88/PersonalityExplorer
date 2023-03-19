@@ -11,7 +11,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      <nav className='font-body lg:hidden' aria-label='main menu'>
+      <nav className='font-body lg:hidden' aria-label='main menu' data-cy='mobile'>
         <button
           className={`flex items-center px-3 py-2 border rounded text-text border-text hover:text-primary hover:border-primary ${
             isOpen ? 'hidden' : 'block'
@@ -24,7 +24,7 @@ export const Navbar: React.FC = () => {
           </svg>
         </button>
       </nav>
-      <nav className={`font-body ${isOpen ? 'block' : 'hidden'} lg:flex lg:items-center`}>
+      <nav className={`font-body ${isOpen ? 'block' : 'hidden'} lg:flex lg:items-center`} data-cy='desktop'>
         <ul className='flex flex-col lg:flex-row lg:space-x-6'>
           {navItems.map(({ label, path }) => (
             <NavItem key={path} label={label} path={path} toggleIcon={() => setIsOpen(!isOpen)} resetTest={resetTest} />
