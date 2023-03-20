@@ -31,8 +31,7 @@ export const useTest = () => {
             setShowModal(true);
             toast.dismiss(toastId);
           }}
-        />,
-        { duration: 5000 }
+        />
       );
       return;
     }
